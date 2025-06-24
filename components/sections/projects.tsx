@@ -116,7 +116,7 @@ export function Projects() {
       {/* View All button for small screens */}
       <div className="mt-8 sm:hidden flex justify-center">
         <Button variant="link" className="p-0 h-auto font-medium text-primary">
-          View All
+        <Link href="/projects">View All</Link>
         </Button>
       </div>
     </section>
