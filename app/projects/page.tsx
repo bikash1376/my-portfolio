@@ -137,6 +137,11 @@ export default function AllProjectsPage() {
           </motion.div>
         ))}
       </div>
+      <div className="mt-8 sm:hidden flex justify-center">
+        <Button variant="link" className="p-0 h-auto font-medium text-primary">
+        <Link href="/">Home</Link>
+        </Button>
+      </div>
     </section>
     </div>
   );
