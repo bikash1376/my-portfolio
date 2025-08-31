@@ -13,7 +13,7 @@ export function Experience() {
       description: "Built EatSmart, an AI-powered nutrition tracker to analyze dietary patterns. Used OpenCV, Python, React.js, and FastAPI.",
       skills: ["OpenCV", "Python", "React.js", "FastAPI"],
       logo: "B",
-      image: "https://media.licdn.com/dms/image/v2/C4D0BAQH4v0G7qtO5UQ/company-logo_200_200/company-logo_200_200/0/1668195915807/buildspaceso_logo?e=1756339200&v=beta&t=CZXZQFWq5Yjg95cmv_f8yVaUuDM8Z8WLbPfVXXHjIoU"
+      image: "https://media.theresanaiforthat.com/icons/buildspace.png"
     },
     {
       company: "Suggaa",
@@ -22,7 +22,7 @@ export function Experience() {
       description: "Developed in-house admin dashboard components, integrated APIs, and built a push notification system using Next.js, TypeScript, and custom libraries.",
       skills: ["Next.js", "Node.js", "React.js", "TypeScript", "Tailwind"],
       logo: "S",
-      image: "https://media.licdn.com/dms/image/v2/C4D0BAQH46GNVGBpW1g/company-logo_200_200/company-logo_200_200/0/1630524653077?e=1756339200&v=beta&t=Q9HjO45D0HYS-L-tqwXj77nkwWEnLpOMHzGtF9dvLhs"
+      image: "https://media.licdn.com/dms/image/v2/C4D0BAQH46GNVGBpW1g/company-logo_200_200/company-logo_200_200/0/1630524653077?e=1759363200&v=beta&t=MHqnysSEILILym_W99BAXhvJfSmhRsI82XK6z7hYQqw"
     }
   ];
 

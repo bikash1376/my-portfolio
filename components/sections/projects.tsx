@@ -9,28 +9,42 @@ import Link from "next/link";
 
 export function Projects() {
   const projects = [
+     {
+      title: "Dropdawn",
+      description: "Dropdawn is ai powered command palette for the web with some extra tools. Built with Next.js, Gemini AI, and external APIs",
+      
+      video: "/images/dropdawn.mp4",
+      image: "/images/dropdawn.png",
+      date: "2025",
+     tags: ["Nextjs", "Gemini AI", "External APIs", "AI"],
+      liveLink: "https://dropdawn.bksh.site",
+      githubLink: "https://github.com/bikash1376/dropdawn"
+    },
     {
-      title: "WebIDE",
-      description: "A web-based IDE that lets you write, run, and share code in your browser. Built using the MERN stack and Docker for secure code execution. Features real-time collaboration, multiple language support, and instant previews.",
-      video: "https://www.youtube.com/watch?v=3RWA4IzuVvA",
+      title: "v0 Bamboo Paper",
+      description: "A drawing app powered by AI, built with Next.js using v0 app builder",
+      // video: "https://www.youtube.com/watch?v=3RWA4IzuVvA",
+      image: "/images/bamboopaper.png",
       date: "2024",
-      tags: ["MongoDB", "Express", "React", "Node.js"],
+      tags: ["Browser APIs", "Local Storage", "React", "Next js"],
       liveLink: "#",
-      githubLink: "https://github.com/bikash1376/webide"
+      githubLink: "https://v0-react-js-ui-jet.vercel.app/"
     },
     {
       title: "Pistash",
       description: "An API client to test APIs, save endpoints, and scrape data. Built using React and localStorage for persistent URL management. Includes scraping functionality for quick data extraction.",
-      video: "https://www.youtube.com/watch?v=3RWA4IzuVvA",
+      // video: "https://www.youtube.com/watch?v=3RWA4IzuVvA",
+      image: "/images/pistash.png",
       date: "2025",
       tags: ["React", "API", "Scraping", "localStorage"],
-      liveLink: "#",
+      liveLink: "https://pistash.vercel.app",
       githubLink: "https://github.com/bikash1376/pistash"
     },
     {
       title: "API Benchmark Tool",
       description: "A tool to benchmark API performance, built using Go. Utilizes Go concurrency to run multiple requests in parallel and provides detailed performance metrics.",
-      video: "https://www.youtube.com/watch?v=3RWA4IzuVvA",
+      // video: "https://www.youtube.com/watch?v=3RWA4IzuVvA",
+      image: "/images/apibenchmark.png",
       date: "2025",
       tags: ["Go", "Benchmark", "Concurrency", "API"],
       liveLink: "#",
@@ -62,15 +76,34 @@ export function Projects() {
             viewport={{ once: true, amount: 0.2 }}
           >
             <Card className="overflow-hidden h-full flex flex-col border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-md">
-              <div className="h-48 overflow-hidden">
-                <video 
-                  src={project.video}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover"
-                />
+              <div className="h-48 overflow-hidden flex items-center justify-center bg-muted">
+                {project.video ? (
+                  project.video.includes("youtube.com") || project.video.includes("youtu.be") ? (
+                    <iframe
+                      src={project.video.replace("watch?v=", "embed/") + (project.video.includes("autoplay=1") ? "" : "?autoplay=1")}
+                      title={project.title}
+                      className="w-full h-full object-cover"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  ) : (
+                    <video
+                      src={project.video}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      controls={false}
+                      className="w-full h-full object-cover"
+                    />
+                  )
+                ) : (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover"
+                  />
+                )}
               </div>
               
               <CardHeader>
@@ -95,12 +128,14 @@ export function Projects() {
               
               <CardFooter className="border-t bg-muted/20 p-4">
                 <div className="flex gap-3">
-                  <Button variant="outline" size="sm" asChild>
-                    <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="h-4 w-4 mr-2" />
-                      Live Demo
-                    </a>
-                  </Button>
+                  {project.liveLink && project.liveLink !== "#" && (
+                    <Button variant="outline" size="sm" asChild>
+                      <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="h-4 w-4 mr-2" />
+                        Live Demo
+                      </a>
+                    </Button>
+                  )}
                   <Button variant="outline" size="sm" asChild>
                     <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
                       <Github className="h-4 w-4 mr-2" />

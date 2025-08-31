@@ -11,7 +11,8 @@ const allProjects = [
   {
     title: "WebIDE",
     description: "A web-based IDE that lets you write, run, and share code in your browser. Built using the MERN stack and Docker.",
-    video: "https://www.youtube.com/watch?v=3RWA4IzuVvA",
+    // video: "https://www.youtube.com/watch?v=3RWA4IzuVvA",
+    image: "/images/webide.png", // <-- Add image path
     date: "2024",
     tags: ["MERN", "Docker", "Web IDE", "Collaboration"],
     liveLink: "#",
@@ -20,49 +21,64 @@ const allProjects = [
   {
     title: "Pistash",
     description: "An API client to test APIs, save endpoints, and scrape data using React and localStorage.",
-    video: "https://www.youtube.com/watch?v=3RWA4IzuVvA",
+    // video: "https://www.youtube.com/watch?v=3RWA4IzuVvA",
+    image: "/images/pistash.png",
     date: "2025",
     tags: ["React", "API", "Scraping", "localStorage"],
-    liveLink: "#",
+    liveLink: "https://pistash.vercel.app",
     githubLink: "https://github.com/bikash1376/pistash"
   },
   {
     title: "API Benchmark Tool",
     description: "A Go-based API performance benchmarking tool using goroutines.",
-    video: "https://www.youtube.com/watch?v=3RWA4IzuVvA",
+    // video: "https://www.youtube.com/watch?v=3RWA4IzuVvA",
+    image: "/images/apibenchmark.png",
     date: "2025",
     tags: ["Go", "Benchmark", "Concurrency", "API"],
     liveLink: "#",
     githubLink: "https://github.com/kataaksh/api-benchmark-go"
   },
-  // ADD 3 MORE
   {
-    title: "Un-other UI",
-    description: "A component library built with Tailwind and Radix UI for React apps.",
-    video: "https://www.youtube.com/watch?v=3RWA4IzuVvA",
+    title: "Putfolio",
+    description: "A digital portfolio to showcase work to the world",
+    // video: "https://youtu.be/7EKgIC5I_48?si=3iiUokEdAmOsaDjs",
+    image: "/images/putfolio.png",
     date: "2025",
-    tags: ["React", "Tailwind", "UI", "Design System"],
-    liveLink: "#",
-    githubLink: "https://github.com/bikash1376/un-other-ui"
+    tags: ["React", "Tailwind", "Nocta UI", "Supabase"],
+    liveLink: "https://putfolio.vercel.app/",
+    githubLink: "https://github.com/bikash1376/putfolio"
   },
   {
-    title: "Eminem Fanpage",
+    title: "Eminem Fanpage - Challenge",
     description: "A fanpage for Eminem built with React and Tailwind.",
-    video: "https://www.youtube.com/watch?v=3RWA4IzuVvA",
+    // video: "https://www.youtube.com/watch?v=3RWA4IzuVvA",
+    image: "/images/eminemfanpage.png",
     date: "2024",
     tags: ["React", "Tailwind", "UI", "Design System"],
-    liveLink: "#",
+    liveLink: "https://eminem-fanpage.vercel.app/",
     githubLink: "https://github.com/bikash1376/eminem-fanpage"
   },
   {
-    title: "LitterMap",
-    description: "A web app that lets you map litter on the streets and report it to the authorities.",
-    video: "https://www.youtube.com/watch?v=3RWA4IzuVvA",
+    title: "TakeUForward - Redesign",
+    description: "A redesign of the TakeUForward website using React Js and Tailwind CSS.",
+    // video: "https://www.youtube.com/watch?v=3RWA4IzuVvA",
+    image: "/images/takeuforward.png",
     date: "2023",
-    tags: ["React", "Tailwind", "Supabase", "Mapbox"],
-    liveLink: "#",
-    githubLink: "https://github.com/bikash1376/littermap"
+    tags: ["React", "Tailwind", "CSS", "Design System"],
+    liveLink: "https://takeyouforward-blush.vercel.app/",
+    githubLink: "https://github.com/bikash1376/takeyouforward"
   },
+    {
+      title: "Dropdawn",
+      description: "Dropdawn is ai powered command palette for the web with some extra tools. Built with Next.js, Gemini AI, and external APIs",
+      
+      video: "/images/dropdawn.mp4",
+      image: "/images/dropdawn.png",
+      date: "2025",
+      tags: ["Nextjs", "Gemini AI", "External APIs", "AI"],
+      liveLink: "https://dropdawn.bksh.site",
+      githubLink: "https://github.com/bikash1376/dropdawn"
+    },
 ];
 
 export default function AllProjectsPage() {
@@ -88,15 +104,34 @@ export default function AllProjectsPage() {
             viewport={{ once: true, amount: 0.2 }}
           >
             <Card className="overflow-hidden h-full flex flex-col border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-md">
-              <div className="h-48 overflow-hidden">
-                <video 
-                  src={project.video}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover"
-                />
+              <div className="h-48 overflow-hidden flex items-center justify-center bg-muted">
+                {project.video ? (
+                  project.video.includes("youtube.com") || project.video.includes("youtu.be") ? (
+                    <iframe
+                      src={project.video.replace("watch?v=", "embed/") + (project.video.includes("autoplay=1") ? "" : "?autoplay=1")}
+                      title={project.title}
+                      className="w-full h-full object-cover"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  ) : (
+                    <video
+                      src={project.video}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      controls={false}
+                      className="w-full h-full object-cover"
+                    />
+                  )
+                ) : (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover"
+                  />
+                )}
               </div>
 
               <CardHeader>
@@ -119,12 +154,14 @@ export default function AllProjectsPage() {
 
               <CardFooter className="border-t bg-muted/20 p-4">
                 <div className="flex gap-3">
-                  <Button variant="outline" size="sm" asChild>
-                    <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="h-4 w-4 mr-2" />
-                      Live Demo
-                    </a>
-                  </Button>
+                  {project.liveLink && project.liveLink !== "#" && (
+                    <Button variant="outline" size="sm" asChild>
+                      <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="h-4 w-4 mr-2" />
+                        Live Demo
+                      </a>
+                    </Button>
+                  )}
                   <Button variant="outline" size="sm" asChild>
                     <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
                       <Github className="h-4 w-4 mr-2" />

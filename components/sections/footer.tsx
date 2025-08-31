@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Github, Linkedin, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { BsTwitterX } from 'react-icons/bs';
 
 export function Footer() {
   const [currentDate, setCurrentDate] = useState("");
@@ -32,9 +33,9 @@ export function Footer() {
               <p className="text-sm opacity-70">Last updated: {currentDate}</p>
             </div>
             
-            <div className="flex gap-4">
+            <div className="flex gap-4 justify-center items-center">
               <a 
-                href="https://github.com/yourusername" 
+                href="https://github.com/bikash1376" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-primary-foreground/70 hover:text-primary-foreground transition-colors"
@@ -58,7 +59,10 @@ export function Footer() {
                 className="text-primary-foreground/70 hover:text-primary-foreground transition-colors"
                 aria-label="Twitter"
               >
-                <X className="h-5 w-5" />
+               
+                <BsTwitterX/>
+
+                
               </a>
             </div>
           </div>
