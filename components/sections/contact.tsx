@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Twitter, Linkedin } from "lucide-react";
+import { Mail } from "lucide-react";
+import { BsTwitterX } from 'react-icons/bs';
 
 export function Contact() {
   return (
@@ -35,7 +36,8 @@ export function Contact() {
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-primary hover:underline"
             >
-              <Twitter className="h-4 w-4" />
+        
+              <BsTwitterX />
               @bikash1376
             </a>
           </div>

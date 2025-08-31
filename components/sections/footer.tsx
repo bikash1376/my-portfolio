@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Github, Linkedin, X } from "lucide-react";
+import { Github, Linkedin} from "lucide-react";
 import { cn } from "@/lib/utils";
 import { BsTwitterX } from 'react-icons/bs';
 
